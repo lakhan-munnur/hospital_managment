@@ -1,0 +1,59 @@
+ <div class="flex items-center justify-center">
+
+
+    <form class="shadow-md rounded-md p-5bg-white w-1/5" [formGroup]="registerForm" (ngSubmit)="register()">
+        <div >
+            <h1 class="font-bold text-left py-2">
+                Register
+            </h1>
+        </div>
+        <mat-form-field appearance="fill" class="w-full">
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="UserName" formControlName="UserName">
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-error *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['required']">
+              Name is required.
+            </mat-error>            
+        </mat-form-field>
+         
+        <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Full Name" formControlName="FullName">
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-error *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.errors?.['required']">
+              first name is required.
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput placeholder="Mobilenumber" formControlName="MobileNumber">
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-error *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.errors?.['required']">
+              last name is required.
+            </mat-error>
+        </mat-form-field>
+
+     
+        <mat-form-field  class="w-full">
+            <mat-label> Password</mat-label>
+            <input matInput formControlName="password"  placeholder="Password">
+            <mat-icon matPrefix>lock</mat-icon>
+            <mat-error *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">
+              password is required.
+            </mat-error>    
+        </mat-form-field> 
+
+        <button class="w-full border-collapse text-white rounded-md border-slate-200 disabled:bg-purple-400 py-2
+        px-3 bg-purple-700" type="submit">
+            Register
+        </button>
+       
+        <div class="my-4">
+            <span class="text-slate-600">
+                Already have an account?
+            </span>
+            <a href="" class="text-purple-700" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</a>
+        </div>
+    </form>
+</div> 

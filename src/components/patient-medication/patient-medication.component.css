@@ -1,0 +1,50 @@
+.submit
+{
+    color: white;
+    background-color: rgb(14, 85, 14);
+    padding: 10px;
+    margin: 10px;
+  border-radius: 10%;
+}
+
+input,select,textarea
+{
+            border-radius: 5%;
+            background-color: #c1d8df;
+            padding: 10px;
+            outline: none;
+}
+
+textarea {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    width: 200px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+   margin-bottom: -8px; 
+    background-color: #c1d8df;
+    resize: both;
+    overflow-y: scroll; /* Add scrollbar for vertical overflow */
+  }
+  
+
+.remove{
+    margin: 50px;
+    color: white;
+    background-color: rgb(80, 39, 39);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10%;
+    margin-left:70px ;
+}
+label {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 5px;
+    padding: 10px;
+    /* display: block; */ /* Makes label appear on a new line */
+  }
+  

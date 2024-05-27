@@ -1,0 +1,53 @@
+<div class="h-screen flex items-center justify-center">
+    <form class="shadow-md rounded-md p-5bg-white w-1/5" [formGroup]="AppointmentForm" (ngSubmit)="Login(hourSelect.value, minuteSelect.value)">
+        <div class="py-4">
+            <h1 class="font-bold text-left py-2">
+               Book Doctor Appointment
+            </h1>
+        </div>
+
+        <mat-form-field appearance="fill"  class="w-full">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName="date" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+          
+        
+        <mat-form-field appearance="fill" class="w-1/2">
+            <mat-label>Hour</mat-label>
+            <mat-select #hourSelect>
+              <mat-option *ngFor="let hour of hours" [value]="hour">{{ hour }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill" class="w-1/2">
+            <mat-label>Minute</mat-label>
+            <mat-select #minuteSelect>
+              <mat-option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+  
+       <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Available Doctors</mat-label>
+            <mat-select  formControlName="doctors">
+              <mat-option *ngFor="let location of locations$ | async" [value]="location.doctors">{{ location.doctors }}</mat-option>
+            </mat-select>
+            <mat-icon matPrefix>groups</mat-icon>
+          </mat-form-field>
+
+        <!-- location -->
+        <button class="w-full border-collapse text-white rounded-md border-slate-200 disabled:bg-purple-400 py-2
+        px-3 bg-purple-700" type="submit">
+           Update appointment
+        </button>    
+    </form>
+  <!--   <button (click)="logout()" mat-menu-item>
+      <mat-icon>
+        logout
+      </mat-icon>
+      <span>Logout</span>
+    </button> -->
+  
+</div> 

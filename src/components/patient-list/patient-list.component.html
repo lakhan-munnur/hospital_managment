@@ -1,0 +1,118 @@
+<!-- <button mat-button (click)="openMedicationsPopup(medicationDialog)">Show Medications</button>
+<ng-template #medicationDialog let-data="data" >
+  <h1 mat-dialog-title>Medications</h1>
+  <div mat-dialog-content  >
+    <p *ngIf="!medications">No data passed</p>
+    <p *ngIf="medications && medications.length<0">No medications in data</p>
+    <p *ngIf="medications && medications.length>0">Medications found: {{ medications.length }}</p>
+    <table class="medication-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Dosage</th>
+          <th>Frequency</th>
+          <th>Instructions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medication of medications">
+          <td>{{ medication.name }}</td>
+          <td>{{ medication.dosage }}</td>
+          <td>{{ medication.frequency }}</td>
+          <td>{{ medication.instructions }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noData>
+    <p>No medications available.</p>
+  </ng-template>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</ng-template> -->
+<ng-template #medicationDialog let-data="data" >
+  <h1 mat-dialog-title>Medications</h1>
+  <div mat-dialog-content  >
+    <p *ngIf="!medicationlist">No data passed</p>
+    <p *ngIf="medicationlist && medicationlist.length<0">No medications in data</p>
+    <p *ngIf="medicationlist && medicationlist.length>0">Medications found: {{ medicationlist.length }}</p>
+    <table class="medication-table">
+      <thead>
+        <tr>
+          <th>patientid</th>
+          <th>medication name</th>
+          <th>Dosage</th>
+          <th>Frequency</th>
+          <th>Instructions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medication of medicationlist">
+          <td>{{ medication.patientId }}</td>
+          <td>{{ medication.medicationName }}</td>
+          <td>{{ medication.dosage }}</td>
+          <td>{{ medication.frequency }}</td>
+          <td>{{ medication.instructions }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noData>
+    <p>No medications available.</p>
+  </ng-template>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</ng-template>
+
+
+
+
+<!-- @if(PatientList && PatientList.length>0){ -->
+  <label style="font-size: large; padding: 10px;">FILTER PATIENTS</label>
+  <input  class="filterinput"  (keyup)="applyFilter($event)" placeholder="patient-name" #input>
+    <div class="mat-elevation-z8 w-full">
+      <div class="flex justify-end p-8">
+       <!--  <button routerLink="/login" mat-raised-button color="primary">
+          
+        </button> -->
+      
+      </div>
+      <h1 align="center" >All Patients List</h1>
+      <table mat-table [dataSource]="PatientList">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element">{{ element.Id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="userName">
+          <th mat-header-cell *matHeaderCellDef>UserName</th>
+          <td mat-cell *matCellDef="let element">{{ element.UserName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="FullName">
+          <th mat-header-cell *matHeaderCellDef>FullName</th>
+          <td mat-cell *matCellDef="let element">{{ element.FullName }}</td>
+        </ng-container>   
+        <ng-container matColumnDef="MobileNumber">
+          <th mat-header-cell *matHeaderCellDef>MobileNumber</th>
+          <td mat-cell *matCellDef="let element">{{ element.MobileNumber }}</td>
+        </ng-container>
+        
+          <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef>Action</th>
+                  <td mat-cell *matCellDef="let element">
+                  <!--  <button mat-raised-button color="primary" routerLink="/patmed" class="mr-4">Give Medication</button> -->
+                     <button mat-raised-button color="primary" (click)="givemedication(element.Id)" class="mr-4">Give Medication</button>
+                <!--    <button mat-raised-button color="warn" (click)="delete(element.id)">Delete</button>   -->
+                <button mat-button (click)="openMedicationsPopup(medicationDialog,element.Id)">Show Medications</button>
+                  </td>
+          </ng-container>  
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+     <!--  }-->
+
+
+    <!-- some-component.component.html -->

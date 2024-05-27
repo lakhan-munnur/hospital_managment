@@ -1,0 +1,30 @@
+ /* Style the table element with class 'medication-table' */
+ .medication-table {
+    border-collapse: collapse;
+    width: 100%; /* Adjust width as needed */
+  }
+
+  /* Style table headers (<th> elements) */
+  .medication-table th {
+    padding: 10px;
+    text-align: left;
+    background-color: #f2f2f2; /* Light gray background */
+    border: 1px solid #ddd; /* Light gray border */
+  }
+
+  /* Style table rows (<tr> elements) */
+  .medication-table tr {
+    border: 1px solid #ddd; /* Light gray border */
+  }
+
+  /* Style table cells (<td> elements) */
+  .medication-table td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Light gray border */
+  }
+
+  .filterinput{
+    outline: none; border: 1px salmon solid; border-radius: 5%;
+ margin: 10px;
+    padding: 10px;
+  }

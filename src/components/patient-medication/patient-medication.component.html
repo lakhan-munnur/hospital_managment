@@ -1,0 +1,29 @@
+<h2>Patient Medications</h2>
+<form [formGroup]="medicationForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="medications">
+    <div *ngFor="let medication of medications.controls; let i = index" [formGroupName]="i">
+      <h4>Medication {{i + 1}}</h4>
+      <label for="medication-name-{{i}}">Medication Name:</label>
+      <input type="text" id="medication-name-{{i}}" formControlName="MedicationName" >
+
+      <label for="medication-dosage-{{i}}">Dosage:</label>
+      <input type="text" id="medication-dosage-{{i}}" formControlName="dosage" >
+
+      <label for="medication-frequency-{{i}}">Frequency:</label>
+      <select id="medication-frequency-{{i}}" formControlName="frequency" >
+        <option value="">Select Frequency</option>
+        <option value="daily">Daily</option>
+        <option value="twice_daily">Twice Daily</option>
+        <option value="as_needed">As Needed</option>
+      </select>
+      <label for="medication-instructions-{{i}}">Instructions:</label>
+      <textarea id="medication-instructions-{{i}}" formControlName="instructions"></textarea>
+      <button class="remove" (click)="removeMedication(i)">Remove Medication</button>
+      <!-- <button class="submit" type="button" (click)="submitMedication(i)">Save Medication {{i + 1}}</button> -->
+    </div>
+  </div>
+  <button class="submit" type="button" (click)="addMedication()">Add Medication</button>
+  <button class="submit" type="submit"  [disabled]="medicationForm.invalid">Save Medications</button>
+</form>
+
+
